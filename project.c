@@ -5,6 +5,9 @@
 //movie struct definition
 struct movie {
     struct movie *next;
+    char movieName[100];
+    char movieEarnings[100];
+    char movieCast[100];
 };
 
 struct movie *NewMovie();
@@ -89,7 +92,22 @@ void browseMovies(struct movie *start) {
 }
 
 void showMovie(struct movie *current) {
+    
+    //structure w/ pointers
+    struct movie *move = current;
 
+    //output for saved entries
+    printf("\n----------------------------------------------------\n\n");
+    printf("Saved movies entries:\n\n");
+
+    //move through and print the entries
+    while (move != NULL) {
+        printf("%s, %s, %s\n",
+            move->movieName, move->movieEarnings, move->movieCast);
+        move = move->next;
+    }
+
+    printf("\n----------------------------------------------------\n");
 }
 
 void changeMovie(struct movie *start) {
