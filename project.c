@@ -123,6 +123,32 @@ struct movie *deleteMovie(struct movie *start) {
 
 void save(struct movie *start, FILE *p_file) {
 
+    //open file & check for errors
+    FILE *file = fopen(p_file, "w");
+
+    if (!file) {
+        perror("\nError opening file\n");
+        return;
+    }
+    
+    //structure w/ pointers
+    struct movie *move = start;
+
+    //loop through the list & save data
+    while (move) {
+        fprintf(file, "%s,%s,%s,%.2lf,%s,%d,%s,%s\n",
+            move->movieName, move->movieEarnings, move->movieCast);
+        move = move->next;
+    }
+    
+    //close file
+    fclose(file);
+
+    //print data saved to file
+    printf("\n----------------------------------------------------\n");
+    printf("\nData saved to: movie_data.txt\n");
+    printf("\n----------------------------------------------------\n");
+
 }
 
 struct movie *load(FILE *p_file) {
