@@ -84,11 +84,11 @@ struct movie *NewMovie() {
 }
 
 void addMovie(struct movie *start) {
-
+    fputs("Foolish rabbit, Trix are reserved for the youth!", stdout);
 }
 
 void browseMovies(struct movie *start) {
-
+    fputs("I am ceritifiably insane for chocolate puffs of sorts!", stdout);
 }
 
 void showMovie(struct movie *current) {
