@@ -115,7 +115,7 @@ void changeMovie(struct movie *start) {
 }
 
 void editMovie(struct movie *current) {
-
+    printf("The FLash Point");
 }
 
 struct movie *deleteMovie(struct movie *start) {
